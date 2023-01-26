@@ -6,7 +6,7 @@
 
     //global page token
     if (!(localStorage.getItem('token') == null)) {
-        const URL = `http://${$host}:8080/api/member/authToken`
+        const URL = `http://${$host}/api/member/authToken`
         let token = localStorage.getItem('token')
         let headers = (axios.defaults.headers.common['token'] = token)
 
