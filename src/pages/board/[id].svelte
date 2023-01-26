@@ -8,7 +8,7 @@
      * 게시글정보
      */
     let id = 0
-    const contentsURL = `http://${$host}:8080/api/board/contents?id=${$params.id}`
+    const contentsURL = `http://${$host}/api/board/contents?id=${$params.id}`
     let title = ''
     let contents = ''
     let likes = 0
@@ -29,7 +29,7 @@
                     filePath,
                     likes
                 } = res.data)
-                const imageURL = `http://${$host}:8080/api/board/contents`
+                const imageURL = `http://${$host}/api/board/contents`
                 const formData = new FormData()
                 formData.append('id', id)
                 axios.put(imageURL, formData)
@@ -41,14 +41,14 @@
     /**
      * 게시글의 모든댓글
      */
-    const boardReplyURL = `http://${$host}:8080/api/board/replies?id=${$params.id}`
+    const boardReplyURL = `http://${$host}/api/board/replies?id=${$params.id}`
     const allReply = axios.get(boardReplyURL).then((res) => res.data)
     /**
      * 댓글쓰기
      */
     let replyContent = ''
     const writeReply = () => {
-        const ReplyWriteURL = `http://${$host}:8080/api/board/reply/write?id=${id}`
+        const ReplyWriteURL = `http://${$host}/api/board/reply/write?id=${id}`
         const data = {
             replyWriter: $myData.email,
             replyContent
@@ -59,7 +59,7 @@
      * 게시글 추천
      */
     const clickLikes = () => {
-        const clickLikesURL = `http://${$host}:8080/api/board/clickLikes`
+        const clickLikesURL = `http://${$host}/api/board/clickLikes`
         const formData = new FormData()
         formData.append("email",email)
         formData.append("id",$params.id)
@@ -78,7 +78,7 @@
     }
 
     const deleteMyPost = () => {
-        const URL = `http://${$host}:8080/api/board/delete/${id}?email=${email}`
+        const URL = `http://${$host}/api/board/delete/${id}?email=${email}`
         axios.delete(URL).then(() => {
             alert('삭제되었습니다.')
             $redirect('/')
@@ -87,18 +87,18 @@
 
     function deleteReply(id) {
         return () => {
-            let URL = `http://${$host}:8080/api/board/reply/delete?id=${id}?${$myData.email}`
+            let URL = `http://${$host}/api/board/reply/delete?id=${id}?${$myData.email}`
             axios.delete(URL).then(() => window.location.reload())
         }
     }
 
-    const answerURL = `http://${$host}:8080/api/board/reply/answer`
+    const answerURL = `http://${$host}/api/board/reply/answer`
     let answer = []
     axios.get(answerURL).then((res) => (answer = res.data))
 
     let answerContent = ''
     const postAnswer = (content, id) => {
-        const postAnswerURL = `http://${$host}:8080/api/board/reply/answer/write`
+        const postAnswerURL = `http://${$host}/api/board/reply/answer/write`
         let data = {
             replyAnswerContent: content,
             id

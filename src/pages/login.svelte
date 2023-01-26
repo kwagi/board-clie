@@ -7,7 +7,7 @@
     let password = ''
 
     const loginSubmit = () => {
-        const url = `http://${$host}:8080/api/member/login`
+        const url = `http://${$host}/api/member/login`
 
         const data = {
             email,

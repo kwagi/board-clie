@@ -52,8 +52,8 @@
 
     $: URL =
         $showOnlyMe === true
-            ? `http://${$host}:8080/api/board/my-post/${page}/${size}`
-            : `http://${$host}:8080/api/board/lists`
+            ? `http://${$host}/api/board/my-post/${page}/${size}`
+            : `http://${$host}/api/board/lists`
     $: if ($showOnlyMe === true) {
         boards = axios
             .put(URL, { email: $myData.email })
@@ -72,7 +72,7 @@
     }
 
     function add100() {
-        const URL = `http://${$host}:8080/api/board/add100`
+        const URL = `http://${$host}/api/board/add100`
         axios.post(URL)
             .then(res => {
                 res.data

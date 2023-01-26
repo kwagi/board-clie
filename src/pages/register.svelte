@@ -9,7 +9,7 @@
     let phone = ''
 
     const regSubmit = () => {
-        const url = `http://${$host}:8080/api/member/register`
+        const url = `http://${$host}/api/member/register`
 
         let data = {
             email,

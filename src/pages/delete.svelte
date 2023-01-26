@@ -7,7 +7,7 @@
     const { email } = $myData
 
     const deleteSubmit = () => {
-        const url = `http://${$host}:8080/api/member/delete`
+        const url = `http://${$host}/api/member/delete`
         const data = {
             email,
             password

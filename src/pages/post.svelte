@@ -7,7 +7,7 @@
     let title = ''
     let contents = ''
     let files
-    const postURL = `http://${$host}:8080/api/board/post`
+    const postURL = `http://${$host}/api/board/post`
 
     function postSubmit() {
         if ($isLogin === false) {
