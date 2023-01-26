@@ -1,8 +1,2 @@
-FROM node
-
-WORKDIR /app
-COPY package.json .
-RUN npm i
-COPY . .
-EXPOSE 8081
-CMD ["npm","run","dev"]
+FROM nginx
+COPY dist /usr/share/nginx/html

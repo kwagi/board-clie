@@ -6,7 +6,7 @@ export const myData = writable({
     phone: "",
     status: "",
     regDate: "",
-    recentDate: ""
+    recentDate: "",
 })
 
 export const isLogin = writable(false)
