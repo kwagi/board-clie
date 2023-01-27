@@ -113,7 +113,7 @@
             return
         }
         axios.post(postAnswerURL, data).then(() => {
-            window.location.replace("/") 
+            window.location.reload()
             $redirect(`/board/${$params.id}`)}
         )
     }
