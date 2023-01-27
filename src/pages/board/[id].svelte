@@ -54,8 +54,7 @@
             replyContent
         }
         axios.post(ReplyWriteURL, data).then(() => {
-            window.location.replace("/")
-            $redirect(`/board/${$params.id}`)
+            window.location.reload()
         })
     }
     /**
@@ -84,8 +83,7 @@
         const URL = `http://${$host}/api/board/delete/${id}?email=${email}`
         axios.delete(URL).then(() => {
             alert('삭제되었습니다.')
-            window.location.replace("/")
-            $redirect(`/board/${$params.id}`)
+            window.location.reload()
         })
     }
 
@@ -93,8 +91,8 @@
         return () => {
             let URL = `http://${$host}/api/board/reply/delete?id=${id}?${$myData.email}`
             axios.delete(URL).then(() => {
-                window.location.replace("/")
-                $redirect(`/board/${$params.id}`)}
+                window.location.reload()
+            }
             )
         }
     }
