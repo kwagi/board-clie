@@ -53,7 +53,10 @@
             replyWriter: $myData.email,
             replyContent
         }
-        axios.post(ReplyWriteURL, data).then(() => window.location.reload())
+        axios.post(ReplyWriteURL, data).then(() => {
+            window.location.replace("/")
+            $redirect(`/board/${$params.id}`)
+        })
     }
     /**
      * 게시글 추천
@@ -81,14 +84,18 @@
         const URL = `http://${$host}/api/board/delete/${id}?email=${email}`
         axios.delete(URL).then(() => {
             alert('삭제되었습니다.')
-            $redirect('/')
+            window.location.replace("/")
+            $redirect(`/board/${$params.id}`)
         })
     }
 
     function deleteReply(id) {
         return () => {
             let URL = `http://${$host}/api/board/reply/delete?id=${id}?${$myData.email}`
-            axios.delete(URL).then(() => window.location.reload())
+            axios.delete(URL).then(() => {
+                window.location.replace("/")
+                $redirect(`/board/${$params.id}`)}
+            )
         }
     }
 
@@ -107,7 +114,10 @@
             alert('공백입니다.')
             return
         }
-        axios.post(postAnswerURL, data).then(() => window.location.reload())
+        axios.post(postAnswerURL, data).then(() => {
+            window.location.replace("/") 
+            $redirect(`/board/${$params.id}`)}
+        )
     }
 
     let clickedUuid = ''
