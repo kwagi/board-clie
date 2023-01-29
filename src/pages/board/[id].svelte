@@ -88,13 +88,10 @@
     }
 
     function deleteReply(id) {
-        return () => {
-            let URL = `http://${$host}/api/board/reply/delete?id=${id}?${$myData.email}`
-            axios.delete(URL).then(() => {
-                window.location.reload()
-            }
-            )
-        }
+        let URL = `http://${$host}/api/board/reply/delete?id=${id}?${$myData.email}`
+        axios.delete(URL).then(() => {
+            window.location.reload()
+        })
     }
 
     const answerURL = `http://${$host}/api/board/reply/answer`
@@ -199,7 +196,7 @@
                         {#if replyWriter === $myData.email}
                             <td
                             ><button
-                                on:click={deleteReply(parseInt(id))}
+                                on:click={deleteReply(id)}
                                 class='btn btn-outline-danger'>삭제</button
                             ></td
                             >
