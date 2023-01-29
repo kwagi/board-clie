@@ -88,7 +88,7 @@
     }
 
     function deleteReply(id) {
-        let URL = `http://${$host}/api/board/reply/delete?id=${id}?${$myData.email}`
+        let URL = `http://${$host}/api/board/reply/delete?id=${id}?email=${$myData.email}`
         axios.delete(URL).then(() => {
             window.location.reload()
         })
@@ -196,7 +196,7 @@
                         {#if replyWriter === $myData.email}
                             <td
                             ><button
-                                on:click={deleteReply(id)}
+                                on:click={() => deleteReply(id)}
                                 class='btn btn-outline-danger'>삭제</button
                             ></td
                             >
