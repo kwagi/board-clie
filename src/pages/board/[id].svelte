@@ -88,9 +88,15 @@
     }
 
     function deleteReply(id) {
-        let URL = `http://${$host}/api/board/reply/delete?id=${id}?email=${$myData.email}`
-        axios.delete(URL).then(() => {
+        let URL = `http://${$host}/api/board/reply/delete?id=${id}&email=${$myData.email}`
+        axios.post(URL).then(() => {
             window.location.reload()
+        }).catch((e) => {
+                if (e.response.data[0]) {
+                    alert(e.response.data[0].message) //validation check
+                } else if (e.response.data.headers) {
+                    alert(e.response.data.headers.message) //error message
+                }
         })
     }
 
