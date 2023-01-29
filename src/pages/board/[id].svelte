@@ -83,7 +83,7 @@
         const URL = `http://${$host}/api/board/delete/${id}?email=${email}`
         axios.delete(URL).then(() => {
             alert('삭제되었습니다.')
-            window.location.reload()
+            window.location.replace("/")
         })
     }
 
