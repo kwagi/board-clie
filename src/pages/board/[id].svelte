@@ -199,7 +199,7 @@
                         {#if replyWriter === $myData.email}
                             <td
                             ><button
-                                on:click={deleteReply(id)}
+                                on:click={deleteReply(parseInt(id))}
                                 class='btn btn-outline-danger'>삭제</button
                             ></td
                             >
